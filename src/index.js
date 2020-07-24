@@ -4,9 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import {createStore} from 'redux'
+import { reducerCount } from './store';
+import { Provider } from 'react-redux';
+
+const counterStore = createStore(reducerCount)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={counterStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
